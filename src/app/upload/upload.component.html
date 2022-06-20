@@ -1,0 +1,13 @@
+<section>
+  <div class="card">
+    <div class="p-col-2 p-md-2">
+      <input class="custom-file-input" type="file" id="customFile" (change)="onChange($event)"
+        accept=".xlsx,.csv,.xls" #fileInput>
+        <label for="customFile" id="customFileLabel">Selecionar arquivo</label>
+    </div>
+  </div>
+  
+  <div class="p-col-2 p-md-2">
+    <button type="button" [disabled]="!files" (click)="onUpload()" class="btn btn-primary"> Upload</button>
+  </div>
+</section>
