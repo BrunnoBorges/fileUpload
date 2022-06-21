@@ -9,13 +9,13 @@ export class UploadService {
 
   constructor(private http: HttpClient) { }
 
-  upload(files: Set<File>, url: string) {
+  upload(files: Set<File>, user: string) {
 
     const formData = new FormData();
     console.log('---->', formData);
     files.forEach(file => formData.append('file', file, file.name))
 
-    const request = new HttpRequest('POST', url, formData);
-    return this.http.request(request);
+    return this.http.post(`http://localhost:8000/upload?user=${user}`, formData);
   }
+
 }

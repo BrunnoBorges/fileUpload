@@ -14,6 +14,7 @@ export class UploadComponent implements OnInit {
   fileType: any;
   fileToUpload = new FormData();
   selectedFiles?: FileList;
+  user: string = 'Brunno Diego Oliveira Borges'
 
   constructor(private uploadService: UploadService) { }
 
@@ -37,7 +38,7 @@ export class UploadComponent implements OnInit {
 
     if(this.files && this.files.size > 0) {
       console.log('sdsdsd', this.files);
-      this.uploadService.upload(this.files, 'http://localhost:8000/upload' )
+      this.uploadService.upload(this.files, this.user)
         .subscribe(resp => console.log('Upload concluido'))
     }
   }
